@@ -4,12 +4,16 @@ import (
 	"aggregationSubscriptions/internal/models"
 	"fmt"
 	"github.com/google/uuid"
+	"strings"
 	"time"
 )
 
 const monthLayout = "01-2006"
 
-func ValidateSubscriptionInput(sub *models.Subscription) error {
+func ValidateSubscription(sub *models.Subscription) error {
+	sub.ServiceName = strings.TrimSpace(sub.ServiceName)
+	sub.UserID = strings.TrimSpace(sub.UserID)
+
 	if sub.ServiceName == "" {
 		return fmt.Errorf("service_name обязателен")
 	}

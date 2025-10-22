@@ -7,8 +7,8 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o aggregationSubscriprions
+RUN go build -o Subscriptions
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "sleep 5 && ./aggregationSubscriprions"]
+CMD ["sh", "-c", "sleep 5 && ./Subscriptions"]
